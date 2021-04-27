@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EPPlus" Version="4.5.2.1" />
+    <PackageReference Include="ExtCore.Data.Abstractions" Version="3.3.0" />
+    <PackageReference Include="Moonlay.ExtCore.Mvc.Abstractions" Version="1.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Manufactures.Data.EntityFrameworkCore\Manufactures.Data.EntityFrameworkCore.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="GarmentScrapClassifications\Queries\" />
+    <Folder Include="GarmentSubcon\GarmentServiceSubconSewings\" />
+    <Folder Include="GarmentSubcon\GarmentServiceSubconSewings\CommandHandlers\" />
+  </ItemGroup>
+
+</Project>

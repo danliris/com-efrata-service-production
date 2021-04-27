@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="GarmentBalanceStockProductions\ValueObjects\**" />
+    <EmbeddedResource Remove="GarmentBalanceStockProductions\ValueObjects\**" />
+    <None Remove="GarmentBalanceStockProductions\ValueObjects\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ExtCore.Data.Abstractions" Version="3.3.0" />
+    <PackageReference Include="Moonlay.Domain" Version="1.0.6.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Infrastructure.Domain\Infrastructure.Domain.csproj" />
+    <ProjectReference Include="..\Infrastructure.External.DanLirisClient.Microservice\Infrastructure.External.DanLirisClient.Microservice.csproj" />
+    <ProjectReference Include="..\Manufactures.Domain.Events\Manufactures.Domain.Events.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="GarmentSubcon\ServiceSubconSewings\Commands\" />
+  </ItemGroup>
+
+</Project>
