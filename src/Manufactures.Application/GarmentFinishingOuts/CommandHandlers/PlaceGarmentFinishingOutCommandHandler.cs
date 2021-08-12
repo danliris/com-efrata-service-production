@@ -82,6 +82,15 @@ namespace Manufactures.Application.GarmentFinishingOuts.CommandHandlers
             {
                 if (item.IsSave)
                 {
+                    double totalQty = 0;
+
+                    if (request.IsDifferentSize)
+                    {
+                        for(var i = 0; i < item.Details.Count(); i++) {
+                            totalQty = totalQty + item.Details.ElementAt(i).Quantity;
+                        }
+                    }
+
                     Guid garmentFinishingOutItemId = Guid.NewGuid();
                     GarmentFinishingOutItem garmentFinishingOutItem = new GarmentFinishingOutItem(
                         garmentFinishingOutItemId,
@@ -94,11 +103,11 @@ namespace Manufactures.Application.GarmentFinishingOuts.CommandHandlers
                         item.DesignColor,
                         new SizeId(item.Size.Id),
                         item.Size.Size,
-                        request.IsDifferentSize ? item.TotalQuantity : item.Quantity,
+                        request.IsDifferentSize ? totalQty : item.Quantity,
                         new UomId(item.Uom.Id),
                         item.Uom.Unit,
                         item.Color,
-                        request.IsDifferentSize ? item.TotalQuantity : item.Quantity,
+                        request.IsDifferentSize ? totalQty : item.Quantity,
                         item.BasicPrice,
                         item.Price
                     );
